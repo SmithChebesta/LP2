@@ -58,12 +58,31 @@
             <title>RABBITS CAMS SEX</title>
       </head>
       <body>
-            <style></style>
+            <style>
+                  .color-changer{
+                        width: 80px;
+                        height: 80px;
+                        background: #ED0000;
+                        border-radius: 10px;
+                        position: absolute;
+                        bottom: 16px;
+                        right: 16px;
+                        z-index: 3;
+                        cursor: pointer;
+                        box-shadow: -4px 4px 20px rgb(0, 0, 0);
+                  }
+                  .color-changer input{
+                        width: 10px;
+                        height: 10px;
+                        visibility: hidden;
+                        
+                  }
+            </style>
             
             <div class="container">
                   <!-- style="cursor: pointer;" onclick="window.location='http://google.com';" -->
                   <div  class="main-image-container">
-                              <a class="bg-link" href="https://lp2-pc353.netlify.app"></a>
+                              <a class="bg-link" href="#"></a>
                               <div class="text-container">
                                     <div class="title">
                                           Get Started For Free
@@ -95,7 +114,7 @@
                               </div>
                   </div>
                   <div class="sub-image-container">
-                        <a href="https://lp2-pc353.netlify.app" class="sub-image link-no-decoration">
+                        <a href="#" class="sub-image link-no-decoration">
                               <div class="star-row">
                                     <img src="assets/images/star.svg" class="star"></img>
                                     <img src="assets/images/star.svg" class="star"></img>
@@ -112,7 +131,7 @@
                                     </div>
                               </div>
                         </a>
-                        <a  href="https://lp2-pc353.netlify.app" class="sub-image link-no-decoration">
+                        <a  href="#" class="sub-image link-no-decoration">
                               <div class="star-row">
                                     <img src="assets/images/star.svg" class="star"></img>
                                     <img src="assets/images/star.svg" class="star"></img>
@@ -142,7 +161,7 @@
                                     The Hottest Models Online Now
                               </div>
                         </div>
-                        <a href="https://lp2-pc353.netlify.app" class="sub-image link-no-decoration">
+                        <a href="#" class="sub-image link-no-decoration">
                               <div class="star-row">
                                     <img src="assets/images/star.svg" class="star"></img>
                                     <img src="assets/images/star.svg" class="star"></img>
@@ -161,10 +180,80 @@
                         </a>
                   </div>
             </div>
+            <div class="color-changer">
+                  <input type="color"  value="#ED0000" id="color">
+            </div>
 
 
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <script src="assets/js/main.js"></script>
+            <script>
+                  const colorChangerBG = $('.color-changer')
+                  const colorChangerInput = $('.color-changer input')
+                  const doc = document.documentElement
+
+                  colorChangerBG.on('click',(e)=>{
+                        console.log(e.target);
+                        colorChangerInput.click()
+                  })
+                  colorChangerInput.on('click',(e)=>{
+                        e.stopPropagation()
+                  })
+                  colorChangerInput.on('input',()=>{
+                        const color = colorChangerInput.val()
+                        const HSL = hexToHSL(color)
+                        colorChangerBG.css("backgroundColor",color)
+                        doc.style.setProperty('--primary-color', color)
+                        doc.style.setProperty('--primary-hover-color', `hsl(${HSL.h},${HSL.s}%,${HSL.l - 10}%)`)
+                        doc.style.setProperty('--banner-color', `hsl(${HSL.h-12},${HSL.s}%,${HSL.l - 7}%)`)
+
+                        
+                  })
+                  function hexToHSL(H) {
+                        // Convert hex to RGB first
+                        let r = 0, g = 0, b = 0;
+                        if (H.length == 4) {
+                        r = "0x" + H[1] + H[1];
+                        g = "0x" + H[2] + H[2];
+                        b = "0x" + H[3] + H[3];
+                        } else if (H.length == 7) {
+                        r = "0x" + H[1] + H[2];
+                        g = "0x" + H[3] + H[4];
+                        b = "0x" + H[5] + H[6];
+                        }
+                        // Then to HSL
+                        r /= 255;
+                        g /= 255;
+                        b /= 255;
+                        let cmin = Math.min(r,g,b),
+                              cmax = Math.max(r,g,b),
+                              delta = cmax - cmin,
+                              h = 0,
+                              s = 0,
+                              l = 0;
+
+                        if (delta == 0)
+                        h = 0;
+                        else if (cmax == r)
+                        h = ((g - b) / delta) % 6;
+                        else if (cmax == g)
+                        h = (b - r) / delta + 2;
+                        else
+                        h = (r - g) / delta + 4;
+
+                        h = Math.round(h * 60);
+
+                        if (h < 0)
+                        h += 360;
+
+                        l = (cmax + cmin) / 2;
+                        s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+                        s = +(s * 100).toFixed(1);
+                        l = +(l * 100).toFixed(1);
+
+                        return {text:"hsl(" + h + "," + s + "%," + l + "%)",h,s,l};
+                  }
+            </script>
           
       </body>
 </html>

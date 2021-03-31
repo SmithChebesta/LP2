@@ -1,9 +1,11 @@
 /* ฺbase */
 :root {
       --app-height: 100%;
-      --primary-color : #ED0000;
+      --primary-color : hsl(0, 100%, 46%);
       --primary-hover-color :#b40202;
       --secondary-color :  #202020;
+      --banner-color :hsl(348, 100%, 39%);
+
 }
 body {
       background: rgb(0, 0, 0);
@@ -45,5 +47,320 @@ pre {
 }
 
 
+
+
+.container{
+      display: flex;
+      height: 100%;
+      width: 100%;
+} 
+.link-no-decoration{
+      text-decoration: none;
+      color: inherit;
+}
+
+/* Main */
+.main-image-container{
+      position: relative;
+      height: 100%;
+      width: 100%;
+      flex-shrink: 1;
+      background-image: url('../images/main.png');
+      background-size: cover;
+      background-position: 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+}
+.main-image-container .bg-link{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+}
+.main-image-container .text-container{
+      padding: 0px 8px;
+      /* padding-top: 20vh; */
+      flex-grow: 4;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+     
+
+}
+.main-image-container .link-container{
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      
+
+}
+.main-image-container .text-container .title{
+      line-height: 36px;
+      font-family: Bree Serif;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: 0em;
+      text-align: center;
+      color: var(--primary-color);
+      z-index: 2;
+      text-shadow: 0px -2px 2px rgba(255, 255, 255, 0.5), 0px 2px 2px rgba(0, 0, 0, 0.5);
+ 
+
+}
+.main-image-container .text-container .sub-title{
+      margin-top: 8px;
+      font-family: Roboto;
+      font-size: 26px;
+      font-style: normal;
+      font-weight: 700;
+      letter-spacing: 0em;
+      z-index: 2;
+      text-align: center;
+
+}
+
+.main-image-container .link-container{
+    margin: 0px auto;
+    text-align: center;
+}
+.main-image-container .link-container .cta{
+      padding: 20px;
+      margin-bottom: 12px;
+      border-radius: 100px;
+      background: var(--primary-color);
+      color: white;
+      font-family: Bree Serif;
+      font-size: 26px;
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: 0em;
+      text-align: center;
+      box-shadow: 0px -2px 2px rgba(255, 255, 255, 0.5), 0px 2px 2px rgba(0, 0, 0, 0.5);
+      z-index: 2;
+}
+.main-image-container .link-container .cta:hover{
+      background: var(--primary-hover-color);
+}
+
+
+.main-image-container .link-container .text{
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 23px;
+      color: white;
+      z-index: 2;
+}
+.main-image-container .link-container .text .text-link{
+      color: white;
+      z-index: 2;
+}
+.main-image-container .link-container .text .text-link:hover{
+      color: var(--secondary-color);
+}
+.cta-banner--main{
+           height: 116px;
+}
+/* Right */
+.sub-image-container{
+      display: none;
+      flex-basis: 460px;
+      width: 460px;
+      flex-shrink: 0;
+      flex-direction: column;
+      border-left: 2px black solid;
+}
+.sub-image{
+      display: flex;
+      flex-direction: column;
+      background-size: cover;
+      background-position: 0% 30%;
+      justify-content: flex-end;
+      flex-grow: 1;
+      height: 100%;
+      width: 100%;
+}
+.sub-image:nth-child(1){
+      background-image: url('../images/sub1.png');
+}
+.sub-image:nth-child(2){
+      background-image: url('../images/sub2.png');
+}
+.sub-image:nth-child(4){
+      background-position: 100% 70%;
+      background-image: url('../images/sub3.png');
+}
+.sub-image .bottom{
+      padding: 0px 24px;
+      height: 31px;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: space-between;
+      justify-items: center;
+
+
+}
+.sub-image .star-row{
+      display: flex;
+      padding: 8px 24px;
+}
+.sub-image .star-row .star{
+      filter: drop-shadow(-0.769563px 0.769563px 1.53913px rgba(0, 0, 0, 0.75));
+      margin: 0px 1px;
+      width: 11px;
+      height: 11px;
+}
+
+.sub-image .bottom .text{
+      display: flex;
+      align-items: center;
+      font-family: Roboto;
+      font-size: 11px;
+      font-style: normal;
+      font-weight: 400;
+      color: white;
+ 
+}
+
+.sub-image .bottom .green-circle{
+      background: rgba(99, 188, 71, 1);
+      border-radius: 100%;
+      margin-right: 8px;
+      height: 12px;
+      width: 12px;
+      animation: blink 2s linear infinite;
+}
+
+@keyframes blink {
+      to {
+            opacity: 0.2;
+      }
+}
+.cta-banner{
+      height: 104px;
+      flex-shrink: 0;
+      width: 100%;
+      background: radial-gradient(68.46% 442.11% at 85.6% 50%, var(--banner-color) 0%, rgba(255, 92, 0, 0) 100%),
+                  radial-gradient(239.33% 444.05% at 0% -72.77%, var(--banner-color) 0%, rgba(24, 0, 0, 0) 100%),
+                  linear-gradient(0deg, var(--primary-color), var(--primary-color));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      padding: 0px 64px;
+      font-family: Bree Serif;
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 41px;
+      letter-spacing: 0em;
+      text-align: center;
+}
+.cta-banner--main{
+      height: 116px;
+      font-size: 20px;
+      line-height: 27px;
+      padding: 16px;
+
+}
+.cta-banner--main .fire-logo{
+      margin-right: 16px;
+}
+/* media query */
+@media screen and (min-width: 576px) {
+      .main-image-container .text-container .title{
+            font-size: 60px;
+            line-height: 80%;
+      
+      }
+      .main-image-container .text-container .sub-title{
+            font-size: 32px;
+            margin-top: 12px;
+      }
+}
+@media screen and (min-width: 768px) {
+      .main-image-container .text-container .title{
+            font-size: 80px;
+            line-height: 80%;
+      
+      }
+      .main-image-container .text-container .sub-title{
+            font-size: 40px;
+            margin-top: 16px;
+      }
+}
+@media screen and (min-width: 996px) {
+      .main-image-container{
+            background-position: 70% 0%;
+      }
+      .main-image-container .text-container .title{
+            font-size: 56px;
+            line-height: 80%;
+            text-shadow: 0px -2px 0px rgba(255, 255, 255, 0.75),
+                              0px 2px 0px rgba(0, 0, 0, 0.75),
+                              0px -4px 10px #FFFFFF,
+                              0px 4px 10px #000000;
+      }
+      .main-image-container .text-container .sub-title{
+            font-size: 34px;
+            margin-top: 16px;
+            
+      }
+      .main-image-container .link-container .cta{
+            font-size: 30px;
+            padding: 30px;
+            height: 104px;
+
+      }
+      .main-image-container .link-container .text{
+            font-size: 20px;
+            
+      }
+      .cta-banner--main{
+            display: none;
+      }
+      .sub-image-container{
+            display: flex;
+      }   
+      
+}
+@media screen and (min-width: 1200px) {
+      .main-image-container .text-container .title{
+            font-size: 80px;
+            line-height: 80%;
+      
+      }
+      .main-image-container .text-container .sub-title{
+            font-size: 40px;
+            margin-top: 16px;
+      }
+}
+
+@media screen and (max-height: 600px) {
+      .sub-image-container{
+            display: none;
+      }
+}
+@media screen and (max-height: 500px) and (max-width:996px) {
+      .main-image-container .text-container .title{
+            font-size: 40px;
+            line-height: 80%;
+      
+      }
+      .main-image-container .text-container .sub-title{
+            font-size: 24px;
+            margin-top: 8px;
+      } 
+      .cta-banner--main{
+            height: 70px;
+      }
+}
 
 
